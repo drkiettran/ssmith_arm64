@@ -1,5 +1,3 @@
-
-
 OBJS = main.o mainmacro.o upper.o codesnippets.o
 APPS = uppermacro upper codesnippets
 
