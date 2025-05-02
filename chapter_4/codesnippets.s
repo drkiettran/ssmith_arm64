@@ -69,9 +69,9 @@ l9:	BIC	X6, X6, #0xFF
 
 // Setup the parameters to exit the program
 // and then call Linux to do it.
-	MOV     W0, #0      // Use 0 return code
-        MOV     X8, #93      // Service command code 93 terminates this program
-        SVC     0           // Call linux to terminate the program
+	MOV W0, #0      // Use 0 return code
+    MOV X8, #93      // Service command code 93 terminates this program
+    SVC 0           // Call linux to terminate the program
 
 .data
 helloworld:	.ascii "Hello World!"
