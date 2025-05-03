@@ -10,6 +10,9 @@ LSTFLGS =
 
 all: flash flashmem
 
+clean: 
+	rm -f flashmem flash $(FLASHOBJS) $(FLASHMEMOBJS)
+
 %.o : %.S
 	gcc $(DEBUGFLGS) $(LSTFLGS) -c $< -o $@
 

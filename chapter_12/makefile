@@ -6,8 +6,11 @@ else
 DEBUGFLGS =
 endif
 LSTFLGS =
+APPS=codesnippets distance fpcomp
+all: $(APPS)
 
-all: codesnippets distance fpcomp
+clean:
+	rm -f $(APPS)
 
 %.o : %.s
 	as -march="armv8.2-a+fp16" $(DEBUGFLGS) $(LSTFLGS) $< -o $@

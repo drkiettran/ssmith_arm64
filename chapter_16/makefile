@@ -6,7 +6,11 @@ else
 DEBUGFLGS =
 endif
 
-all: upper upperpie uppercanary
+APPS=upper upperpie uppercanary
+all: $(APPS)
+clean:
+	rm -f $(APPS)
+	rm -f *.o
 
 %.o : %.s
 	as $(DEBUGFLGS) $(LSTFLGS) $< -o $@

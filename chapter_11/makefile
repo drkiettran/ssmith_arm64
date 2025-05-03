@@ -6,7 +6,12 @@ DEBUGFLGS =
 endif
 LSTFLGS =
 
-all: divexamp mulexamp matrixmult
+APPS=divexamp mulexamp matrixmult
+
+all: $(APPS)
+
+clean: 
+	rm -f $(APPS)
 
 %.o : %.s
 	as $(DEBUGFLGS) $(LSTFLGS) $< -o $@

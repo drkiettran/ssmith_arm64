@@ -10,7 +10,12 @@ DEBUGFLGS =
 endif
 LSTFLGS =
 
-all: upper upper2 upper3 upper4
+APPS=upper upper2 upper3 upper4
+all: $(APPS)
+
+clean:
+	rm -f $(APPS) 
+	rm -f *.o
 
 %.o : %.s
 	as $(DEBUGFLGS) $(LSTFLGS) $< -o $@

@@ -1,5 +1,7 @@
 
 all: upper upperghidra
+clean:
+	rm -f upper upperghidra
 
 upper: upper.c
 	# gcc -O3 -mcmodel=tiny -o upper upper.c

@@ -5,7 +5,10 @@ else
 DEBUGFLGS =
 endif
 
-all: distance matrixmultneon
+APPS=distance matrixmultneon
+all: $(APPS)
+clean:
+	rm -f $(APPS)
 
 %.o : %.s
 	as $(DEBUGFLGS) $(LSTFLGS) $< -o $@

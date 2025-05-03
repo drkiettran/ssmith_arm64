@@ -1,3 +1,4 @@
+APPS = addexamp2 uppertst uppertst2 uppertst3 uppertst4
 LIBOBJS = upper.o
 
 ifdef DEBUG
@@ -7,8 +8,12 @@ DEBUGFLGS =
 endif
 LSTFLGS =
 
-all: addexamp2 uppertst uppertst2 uppertst3 uppertst4
+all: $(APPS)
 
+clean:
+	rm -f $(APPS)
+	rm -r *.o 
+	
 %.o : %.s
 	as $(DEBUGFLGS) $(LSTFLGS) $< -o $@
 
@@ -26,10 +31,10 @@ uppertst2: uppertst.c libupper.a
 
 libup.so.1.0: $(LIBOBJS)
 	gcc -shared -Wl,-soname,libup.so.1 -o libup.so.1.0 $(LIBOBJS)
-	mv libup.so.1.0 /usr/local/lib
-	ln -sf /usr/local/lib/libup.so.1.0 /usr/local/lib/libup.so.1
-	ln -sf /usr/local/lib/libup.so.1.0 /usr/local/lib/libup.so
-	ldconfig
+	# mv libup.so.1.0 /usr/local/lib
+	# ln -sf /usr/local/lib/libup.so.1.0 /usr/local/lib/libup.so.1
+	# ln -sf /usr/local/lib/libup.so.1.0 /usr/local/lib/libup.so
+	# ldconfig
 
 uppertst3: libup.so.1.0
 	gcc -o uppertst3 uppertst.c -lup
